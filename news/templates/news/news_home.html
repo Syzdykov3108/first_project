@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ news_home }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ news_home }}</h1>
+        <hr class="line">
+        {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+                <a href="{% url 'news_detail' el.id %}" class="btn btn-success">Читать полностью</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
